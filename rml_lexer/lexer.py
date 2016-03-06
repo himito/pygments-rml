@@ -7,7 +7,7 @@ class RmlLexer(OcamlLexer):
     aliases = ['rml']
     filenames = ['*.rml']
 
-    EXTRA_KEYWORDS = ['process', 'run']
+    EXTRA_KEYWORDS = set(('process', 'proc', 'run', 'nothing', 'pause', 'halt'))
 
     def get_tokens_unprocessed(self, text):
         for index, token, value in OcamlLexer.get_tokens_unprocessed(self, text):
