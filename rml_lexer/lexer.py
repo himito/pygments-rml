@@ -1,5 +1,5 @@
 from pygments.lexers.functional import OcamlLexer
-from pygments.token import Name, Keyword
+from pygments.token import Name, Keyword, Operator, Literal
 
 
 class RmlLexer(OcamlLexer):
@@ -7,7 +7,9 @@ class RmlLexer(OcamlLexer):
     aliases = ['rml']
     filenames = ['*.rml']
 
-    EXTRA_KEYWORDS = set(('process', 'proc', 'run', 'nothing', 'pause', 'halt'))
+    EXTRA_KEYWORDS = ['process', 'proc', 'run', 'nothing', 'pause', 'halt',
+                      'emit', 'signal', 'until', 'loop', 'await', 'immediate',
+                      'one']
 
     def get_tokens_unprocessed(self, text):
         for index, token, value in OcamlLexer.get_tokens_unprocessed(self, text):
